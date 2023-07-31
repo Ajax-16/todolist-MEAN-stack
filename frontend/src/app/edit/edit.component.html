@@ -1,0 +1,50 @@
+<section class="heading-section">
+    <h1 class="title is-4 has-text-centered">Editar tarea</h1>
+</section>
+
+<form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+
+    <section class="body">
+
+        <div class="container" *ngIf="tempTodo">
+
+            <div class="field is-grouped">
+                <div class="control is-expanded">
+                    <input ngModel #todoNameField="ngModel" required name="taskName" class="input" type="text"
+                        placeholder="Escribe el nombre de tu próxima tarea..." [(ngModel)]="tempTodo.name">
+                    <input ngModel #todoTextField="ngModel" required name="taskDesc" class="input mt-4" type="text"
+                        placeholder="Escribe una descripción..." [(ngModel)]="tempTodo.description">
+                    <p class="mt-4">Estado inicial de la tarea</p>
+                    <div class="select is-success">
+                        <select ngModel #todoStateField="ngModel" name="taskState" [(ngModel)]="tempTodo.state">
+                            <option value="incomplete">Incompleta</option>
+                            <option value="in progress">En proceso</option>
+                            <option value="not started">No empezada</option>
+                            <option value="complete">Completada</option>
+                        </select>
+                    </div>
+                    <p class="mt-4">Día en el que la tarea será realizada</p>
+                    <input ngModel #todoTextField="ngModel" required name="taskDay" class="input" type="date"
+                        [(ngModel)]="tempTodo.day">
+                    <p class="mt-4">Hora de inicio de la tarea</p>
+                    <input ngModel #todoTextField="ngModel" required name="taskStartTime" class="input" type="time"
+                        [(ngModel)]="tempTodo.start_time">
+                    <p class="mt-4">Hora de finalización de la tarea</p>
+                    <input ngModel #todoTextField="ngModel" required name="taskEndTime" class="input mb-4" type="time"
+                        [(ngModel)]="tempTodo.end_time">
+                </div>
+            </div>
+
+        </div>
+        <div class="end-form">
+            <button type="submit" class="close">
+                <p>GUARDAR</p>
+                <i class="material-icons">save</i>
+            </button>
+            <button type="button" class="close" (click)="closeDialog()">
+                <p>cancelar</p>
+            </button>
+        </div>
+    </section>
+
+</form>

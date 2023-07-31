@@ -1,0 +1,44 @@
+<section class="heading-section">
+    <h1 class="title is-1 has-text-centered">Lista de Tareas</h1>
+</section>
+<section class="section">
+    <div class="is-loading" *ngIf="isLoading">
+        <i class="material-icons">refresh</i>
+    </div>
+    <div class="no-data" *ngIf="noData">
+        <i class="material-icons">info</i>
+        <p class="title is-4">No existen tareas todavia</p>
+        <i class="material-icons">info</i>
+    </div>
+    <div class="container" *ngIf="todos">
+        
+        <div class="todos-list">
+            
+            <div class="todo-item" *ngFor="let todo of todos" [class.completed]="todo.state=='complete'">
+                <div class="check-box" (click)="completeTodo(todo)">
+                    <i class="material-icons">check</i>
+                </div>
+                <div class="todo-content">
+                    <div class="todo-text">
+                        {{ todo.name }}
+                    </div>
+                    <div class="line"></div>
+                    <div class="todo-desc">
+                        {{ todo.description }}
+                    </div>
+                </div>
+                <div class="todo-controls-box">
+
+                    <div class="todo-control-button" #editBtn (click)="editTodo(todo)">
+                        <i class="material-icons">edit</i>
+                    </div>
+
+                    <div class="todo-control-button" (click)="deleteTodo(todo)">
+                        <i class="material-icons">delete</i>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

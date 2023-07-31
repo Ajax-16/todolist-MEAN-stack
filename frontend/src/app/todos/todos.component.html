@@ -1,0 +1,52 @@
+<section class="heading-section">
+
+    <h1 class="title is-1 has-text-centered">Crear Tarea</h1>
+
+</section>
+
+<div class="container">
+
+    <div class="add-todo-box">
+
+        <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+
+            <div class="field is-grouped">
+                <div class="control is-expanded">
+                    <input ngModel #todoNameField="ngModel" required name="taskName" class="input" type="text"
+                        placeholder="Escribe el nombre de tu próxima tarea...">
+                    <input ngModel #todoTextField="ngModel" required name="taskDesc" class="input" type="text" 
+                        placeholder="Escribe una descripción...">
+                    <p class="mt-4">Introduce el estado inicial de la tarea</p>
+                    <div class="select is-success">
+                        <select ngModel #todoStateField="ngModel" name="taskState">
+                            <option value="incomplete">Incompleta</option>
+                            <option value="in progress">En proceso</option>
+                            <option value="not started">No empezada</option>
+                        </select>
+                    </div>
+                    <p class="mt-4">Introduce el día en el que la tarea será realizada</p>
+                    <input ngModel #todoTextField="ngModel" required name="taskDay" class="input" type="date">
+                    <p class="mt-4">Introduce la hora de inicio de la tarea</p>
+                    <input ngModel #todoTextField="ngModel" required name="taskStartTime" class="input" type="time">
+                    <p class="mt-4">Introduce la hora aproximada de finalización de la tarea</p>
+                    <input ngModel #todoTextField="ngModel" required name="taskEndTime" class="input mb-4" type="time">
+                </div>
+            </div>
+            <p class="control">
+                <button type="submit" class="button alt-gradient-button">
+                    <i class="material-icons">add</i>
+                    Añadir
+                </button>
+            </p>
+
+        </form>
+
+    </div>
+
+    <div class="error mt-4" *ngIf="form.invalid && showValidationErrors == true">
+        <i class="material-icons">warning</i>
+        <p>Uno de los campos está vacío o contiene información errónea</p>
+        <i class="material-icons">warning</i>
+    </div>
+
+</div>

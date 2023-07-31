@@ -1,0 +1,57 @@
+.heading-section{
+    background: linear-gradient(to right, #31af1c, #1ca7af);
+
+    padding: 80px;
+    padding-bottom: 130px;
+
+    h1.title{
+        font-weight: bold;
+        color: white;
+        text-shadow: 0px 1px 2px rgba(black, 0.7);
+    }
+
+}
+
+.container{
+    width: 800px;
+}
+
+.add-todo-box{
+    padding: 25px;
+    border-radius: 4px;
+    margin-top: -72px;
+    background: white;
+    box-shadow: 0px 4px 12px rgba(black, 0.1);
+}
+
+.error{
+    display: flex;
+    justify-content: center;
+    align-items: space-around;
+    padding: 35px 15px;
+    font-size: 18px;
+    border: 3px solid rgb(240, 54, 82);
+    border-radius: 5px;
+
+    p{
+        margin: 0 auto;
+    }
+
+    i.material-icons{
+        color: rgb(240, 54, 82);
+        font-size: 28px;
+    }
+
+}
+
+.input{
+    margin-top: 20px;
+
+    &:first-of-type{
+        margin-top: 0px;
+    }
+}
+
+.select{
+    margin-top: 20px;
+}

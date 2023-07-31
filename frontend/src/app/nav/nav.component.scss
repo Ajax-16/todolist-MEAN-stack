@@ -1,0 +1,57 @@
+.nav-heading {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 80px;
+    /*position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;*/
+    position: sticky; // MEJOR FORMA
+    top: 0;
+    z-index: 1;
+    background: white;
+
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+
+  }
+  
+  .element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 80px;
+    cursor: pointer;
+  
+    transition: background 0.2s;
+
+    &:hover {
+      background: #31af1c;
+        
+      i.material-icons {
+        transition: transform 0.2s, font-size 0.2s;
+        font-size: 40px;
+      }
+
+      &:nth-of-type(2){
+
+        i.material-icons {
+            transition: transform 0.2s;
+            transform: rotate(90deg);
+          }
+
+        }
+    
+    }
+  
+    &:not(:hover) {
+      i.material-icons {
+        font-size: 30px;
+        transition: transform 0.2s, font-size 0.2s;
+        transform: rotate(0deg); 
+      }
+    }
+
+  }
