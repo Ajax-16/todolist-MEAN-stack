@@ -18,7 +18,7 @@ Las variables son las siguientes:
 
 - PORT (El puerto en el que se levantará nuestro servicio. Si no se define se iniciará en el puerto 3001)
 - HOST (La dirección de la máquina de tu red que va a alojar el servicio)
-- DB_URI (La dirección URI de la base de datos. Si esta proviene del docker-compose.yml del proyecto utiliza esta: ()[mongodb://root:root@localhost:27017/todo-list?authSource=admin])
+- DB_URI (La dirección URI de la base de datos. Si esta proviene del docker-compose.yml del proyecto utiliza esta: mongodb://root:root@localhost:27017/todo-list?authSource=admin
 - SECRET (El secreto que utiliza JsonWebToken para crear el token de autenticación)
 
 Una vez configurado, podemos levantar el servicio a través de nodemon con:
