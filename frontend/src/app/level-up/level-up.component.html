@@ -1,0 +1,18 @@
+<section class="heading-section">
+    <h1 class="title is-3 has-text-centered">
+        <img *ngIf="profilePic; else loadingSection"class="profile-pic" [src]="profilePic" alt="" width="64px" height="64px">
+        <ng-template #loadingSection>
+          <i class="material-icons">person</i>
+        </ng-template>
+    </h1>
+    <h1 class="title is-3 has-text-centered">
+        ¡Enhorabuena {{user?.username}}!
+    </h1>
+    <h1 class="title is-2 has-text-centered">
+        NUEVO RANGO
+    </h1>
+    <h1 class="title is-1 has-text-centered">
+        RANGO {{user?.level}}
+    </h1>
+
+</section>

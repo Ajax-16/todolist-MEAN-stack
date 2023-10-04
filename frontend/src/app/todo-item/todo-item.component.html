@@ -1,5 +1,5 @@
 <section class="heading-section">
-    <h1 class="title is-1 has-text-centered">Lista de Tareas</h1>
+    <h1 class="title is-1 has-text-centered">Tu Lista de Tareas</h1>
 </section>
 <section class="section">
     <div class="is-loading" *ngIf="isLoading">
@@ -26,10 +26,14 @@
                     <div class="todo-desc">
                         {{ todo.description }}
                     </div>
+                    <div class="line"></div>
+                    <div class="todo-state">
+                        {{ getEstado(todo) }}
+                    </div>
                 </div>
                 <div class="todo-controls-box">
 
-                    <div class="todo-control-button" #editBtn (click)="editTodo(todo)">
+                    <div class="todo-control-button" *ngIf="todo.state!='complete'" #editBtn (click)="editTodo(todo)">
                         <i class="material-icons">edit</i>
                     </div>
 

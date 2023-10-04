@@ -1,0 +1,60 @@
+<section class="heading-section">
+        <h1 class=" title is-1 has-text-centered">
+          <img class="profile-pic" [src]="profilePic" alt="" width="256px" height="256px">
+        </h1>
+    <h1 class="title is-1 has-text-centered username" *ngIf="user">
+        {{ user.username }}
+    </h1>
+    <h1 class="title is-3 has-text-centered mt-5" *ngIf="user">
+      Rango {{user.level}}
+    </h1>
+</section>
+
+<div class="container" *ngIf="user">
+    
+    <div class="profile-box">
+        <div class="profile-item">
+            <p class="text">Tareas actuales activas</p>
+            <div class="line"></div>
+            {{user.totalTasks}}
+        </div>
+    
+        <div class="profile-item">
+            <p class="text">Total tareas completadas</p>
+            <div class="line"></div>
+            {{user.completedTasks}}
+        </div>
+
+        <div class="horizontal-line"></div>
+
+        <h3 class="title is-3 has-text-centered">
+            <i class="material-icons">settings</i>
+            Configuración
+            <i class="material-icons">settings</i>
+        </h3>
+
+        <form #form="ngForm" (ngSubmit)="uploadImage(form)" enctype="multipart/form-data">
+            <div class="form-upload">
+              <p class="title is-5">Cambiar foto de perfil</p>
+              <div class="line"></div>
+              <label class="file-label">
+                <input ngModel required class="file-input" type="file" name="file" (change)="onFileSelected($event)" #fileInput>
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="material-icons">upload</i>
+                  </span>
+                  <span class="file-label">
+                    Elige un archivo...
+                  </span>
+                </span>
+                <span class="file-name">
+                  {{ selectedFileName }}
+                </span>
+              </label>
+              <button class="button alt-gradient-button" type="submit">Enviar</button>
+            </div>
+          </form>
+
+    </div>
+
+</div>

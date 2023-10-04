@@ -1,0 +1,67 @@
+<section class="heading-section">
+  <h1 class="title is-1 has-text-centered">
+    Tu Calendario
+  </h1>
+</section>
+
+<section class="section">
+  <div class="is-loading" *ngIf="isLoading">
+    <i class="material-icons">refresh</i>
+  </div>
+</section>
+
+<section>
+  <div class="calendar-content" *ngIf="!isLoading">
+    <div class="wrapper-calendar">
+      <div class="header-calendar">
+        <div class="btn-left">
+          <button (click)="changeMonth(-1)" class="button alt-gradient-button">
+            <i class="material-icons">navigate_before</i>
+          </button>
+        </div>
+        <h1 class="title is-1">{{ dateSelect?.format('MMMM, yyyy') }}</h1>
+        <div class="btn-right">
+          <button (click)="changeMonth(1)" class="button alt-gradient-button">
+            <i class="material-icons">navigate_next</i>
+          </button>
+        </div>
+      </div>
+      <ol>
+        <li *ngFor="let day of week" class="day-name">{{ day | slice: 0:3 }}</li>
+        <ng-container *ngFor="let dayItem of monthSelect;let first = first">
+          <div class="day-item" (click)="clickDay(dayItem)"
+            [style.gridColumnStart]="first ? dayItem?.indexWeek : 'auto'">
+            <li class="day-header">
+              <span>{{ dayItem?.value }}</span>
+            </li>
+
+            <div class="task-list">
+              <div class="task-element" *ngFor="let todo of dayItem.todos" [class.completed]="todo.state=='complete'"
+                [class.not-completed]="todo.state=='in progress' || todo.state=='not started'"
+                [class.incomplete]="todo.state=='incomplete'">
+                <p>{{ todo.name }}</p>
+              </div>
+            </div>
+            <div class="empty-task-element" (click)="addNewTaskOnDay(dayItem)">
+              <i class="material-icons">add</i>
+            </div>
+          </div>
+        </ng-container>
+      </ol>
+
+      <div class="header-calendar">
+        <div class="btn-left">
+          <button (click)="changeMonth(-1)" class="button alt-gradient-button">
+            <i class="material-icons">navigate_before</i>
+          </button>
+        </div>
+        <h1 class="title is-1">{{ dateSelect?.format('MMMM, yyyy') }}</h1>
+        <div class="btn-right">
+          <button (click)="changeMonth(1)" class="button alt-gradient-button">
+            <i class="material-icons">navigate_next</i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

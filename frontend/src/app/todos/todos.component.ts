@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DbService } from '../services/db/db.service';
 import { SimpleTodo } from '../services/shared/simple.todo.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-todos',
@@ -12,10 +13,15 @@ export class TodosComponent implements OnInit{
 
   todos?: any
   showValidationErrors?: boolean;
+  dateInput: any;
+  paramDay: any;
 
-  constructor(private dbService:DbService) { }
+  constructor(private dbService:DbService, private route:ActivatedRoute) { }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.dateInput = params['day'];
+    });
   }
 
   onFormSubmit(form: NgForm){

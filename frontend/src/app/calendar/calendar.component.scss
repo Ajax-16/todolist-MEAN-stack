@@ -1,0 +1,220 @@
+.calendar-content{
+    display: block;
+    margin: 0 auto;
+    width: 1700px;
+    margin-top: -60px;
+    margin-bottom: 30px;
+}
+
+.wrapper-calendar{
+    border-radius: 6px;
+    padding: .5rem;
+    border: solid 1px #eaeaea;
+    box-shadow: 0 0 10px #e4e4e4;
+    
+    i.material-icons{
+        font-size: 4rem;
+        display: block;
+        margin: 0 auto;
+    }
+
+  }
+
+  .btn-left{
+    margin-left: 20px;
+  }
+
+  .btn-right{
+    margin-right: 20px;
+  }
+  
+  div {
+      text-align: center;
+    }
+    
+    ol {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      margin-bottom: 10px;
+      padding: 0;
+    }
+    
+    li {
+      padding: .25rem;
+    }
+
+    h2 {
+      margin-bottom: 4px;
+      padding: 0;
+    }
+    
+    .first-day {
+      grid-column-start: var(--first-day-start, 0);
+    }
+    
+    .day-name {
+      background: #eee;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+      padding: 10px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+        &:first-of-type{
+            border-bottom-left-radius: 6px;
+        }
+
+        &:last-of-type{
+            border-bottom-right-radius: 6px;
+        }
+
+    }
+    
+    .header-calendar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+
+      height: 100px;
+
+      background: linear-gradient(to right, #31af1c, #1ca7af);
+
+      .title{
+        font-size: 3rem;
+        margin: 0 auto;
+        width: 400px;
+      }
+
+      &:first-of-type{
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+      }
+
+     &:last-of-type{
+        border-radius: 6px;
+      }
+
+    }
+    
+    .header-calendar button {
+      cursor: pointer;
+      background-color: transparent;
+      border: 0;
+    }
+
+    .day-header{
+        background: #31af1c;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .day-item {
+        margin: 3px;
+        cursor: pointer;
+        border-top-right-radius: 6px;
+        border-top-left-radius: 6px;
+        border: 10px solid;
+        border-image-slice: 1;
+        border-width: 5px;
+        border-image-source: linear-gradient(to bottom, #31af1c, #1ca7af);
+    }
+
+    .task-list{
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        overflow: auto;
+        margin-right: 3px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        gap: 10px;
+    }
+
+    .task-element{
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 4px;
+        width: 160px;
+        border-radius: 6px;
+        transition: opacity 0.2s, box-shadow 0.2s;
+        opacity: 0.8;
+
+        p{
+            width: 120px;
+        }
+
+        i.material-icons{
+            font-size: 1.2rem;
+        }
+
+    }
+
+    .completed{
+        background: #31af1c;
+    }
+
+    .not-completed{
+        background: #f4f4f4;
+    }
+
+    .incomplete{
+        background: rgb(236, 72, 140);
+    }
+
+    .task-element:hover{
+        opacity: 1;
+        box-shadow: 0px 2px 3px rgba(0,0,0, 0.3);
+    }
+
+    .empty-task-element{
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 25px;
+
+        i.material-icons{
+            transition: transform 0.2s, font-size 0.2s;
+            font-size: 2.5rem;
+        }
+
+        &:hover{
+            i.material-icons{
+                font-size: 3.5rem;
+                transform: rotate(90deg); 
+            }
+        }
+
+        &:not(:hover){
+            transition: transform 0.2s, font-size 0.2s;
+            transform: rotate(0deg); 
+        }
+
+    }
+
+/* Estilos para la barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  /* Estilos para el thumb (la parte móvil) de la barra de desplazamiento */
+::-webkit-scrollbar-thumb {
+    background-color: rgba(236, 72, 140, 0.85);
+    border-radius: 10px;
+  }
+  
+  /* Estilos para el thumb (la parte móvil) de la barra de desplazamiento cuando se está arrastrando */
+::-webkit-scrollbar-thumb:active {
+    background-color: rgb(236, 72, 140);
+  }

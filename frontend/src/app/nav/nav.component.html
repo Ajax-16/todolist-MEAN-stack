@@ -1,14 +1,39 @@
 <nav class="nav-heading">
-    <div class="element" routerLink="/" title="Página principal">
+    <!-- Elementos a la izquierda -->
+    <div class="left-elements">
+      <div class="element" routerLink="/" title="Página principal">
         <i class="material-icons">home</i>
+      </div>
+      <ng-container *ngIf="dbService.loggedIn()">
+        <div class="element" routerLink="/create" title="Crear tarea">
+            <i class="material-icons">add</i>
+          </div>
+          <div class="element" routerLink="/list" title="Lista de tareas">
+            <i class="material-icons">list</i>
+          </div>
+          <div class="element" routerLink="/calendar" title="Calendario de tareas">
+            <i class="material-icons">calendar_month</i>
+          </div>
+      </ng-container>
     </div>
-    <div class="element" routerLink="/create" title="Crear tarea">
-        <i class="material-icons">add</i>
+    
+    <!-- Elementos a la derecha -->
+    <div class="right-elements">
+      <ng-container *ngIf="!dbService.loggedIn()">
+        <div class="opposite-element" routerLink="/signin" title="Inicia sesión">
+          <i class="material-icons">login</i>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="dbService.loggedIn()">
+        <div class="opposite-element" routerLink="/profile" title="Perfil de usuario">
+          <img *ngIf="profilePic; else loadingSection"class="profile-pic" [src]="profilePic" alt="" width="64px" height="64px">
+          <ng-template #loadingSection>
+            <i class="material-icons">person</i>
+          </ng-template>
+        </div>
+        <div class="opposite-element" (click)="logOut()" title="Cerrar sesión">
+          <i class="material-icons">logout</i>
+        </div>
+      </ng-container>
     </div>
-    <div class="element" routerLink="/list" title="Lista de tareas">
-        <i class="material-icons">list</i>
-    </div>
-    <div class="element" title="Lista de tareas">
-        <i class="material-icons">calendar_month</i>
-    </div>
-</nav>
+  </nav>

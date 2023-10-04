@@ -1,0 +1,58 @@
+<section class="heading-section">
+    <h1 class="title is-1 has-text-centered">
+        Inicia sesión
+    </h1>
+</section>
+
+<div class="container">
+
+    <div class="sign-in-box">
+
+        <div class="sign-in-body">
+
+            <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+
+                <div class="field is-grouped mb-5">
+
+                    <div class="control is-expanded">
+
+                    <p class="mt-3 mb-3">Email:</p>
+
+                    <input ngModel #emailField="ngModel" required name="email" class="input" type="email"
+                        placeholder="Escribe tu email">
+
+                    <p class="mt-3 mb-3">Contraseña:</p>
+
+                    <div class="field is-grouped">
+                        <input [(ngModel)]="password" #passField="ngModel" required name="password" class="input" [type]="passwordType"
+                          placeholder="Escribe tu contraseña">
+                        <i class="material-icons" (click)="togglePasswordVisibility()">
+                          {{ showPassword ? 'visibility_off' : 'visibility' }}
+                        </i>
+                    </div>
+
+                    </div>
+
+                </div>
+
+                <p class="control">
+                    <button type="submit" class="button alt-gradient-button">
+                        Siguiente
+                    </button>
+                </p>
+
+            </form>
+
+            <div class="error mt-5" *ngIf="showValidationErrors">
+                <i class="material-icons">warning</i>
+                <p>{{errorMessage}}</p>
+                <i class="material-icons">warning</i>
+            </div>
+
+            <p class="control mt-5">¿No tienes cuenta aún? <a routerLink="/signup">Haz click aquí</a></p>
+
+        </div>
+
+    </div>
+
+</div>
