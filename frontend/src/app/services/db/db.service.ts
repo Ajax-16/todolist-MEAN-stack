@@ -19,35 +19,35 @@ export class DbService {
   constructor(private http:HttpClient, private router:Router) { }
 
   getAllTasks(): Observable<any> {
-    return this.http.get('https://k1wcpdjw-3002.uks1.devtunnels.ms/todo/');
+    return this.http.get('http://localhost:3002/todo/');
   }
 
   addTask(Task:SimpleTodo): Observable<any>{
-    return this.http.post('https://k1wcpdjw-3002.uks1.devtunnels.ms/todo/', Task);
+    return this.http.post('http://localhost:3002/todo/', Task);
   }
 
   completeTask(id:string){
-    return this.http.put(`https://k1wcpdjw-3002.uks1.devtunnels.ms/todo/complete/${id}`, '');
+    return this.http.put(`http://localhost:3002/todo/complete/${id}`, '');
   }
 
   deleteTask(id:string){
-    return this.http.delete(`https://k1wcpdjw-3002.uks1.devtunnels.ms/todo/${id}`);
+    return this.http.delete(`http://localhost:3002/todo/${id}`);
   }
 
   updateTask(newTask: SimpleTodo, id:string){
-    return this.http.put(`https://k1wcpdjw-3002.uks1.devtunnels.ms/todo/${id}`, newTask);
+    return this.http.put(`http://localhost:3002/todo/${id}`, newTask);
   }
 
   registerUser(user:User){
-    return this.http.post('https://k1wcpdjw-3002.uks1.devtunnels.ms/user/register', user);
+    return this.http.post('http://localhost:3002/user/register', user);
   }
 
   getUsername(email:string){
-    return this.http.get(`https://k1wcpdjw-3002.uks1.devtunnels.ms/user/${email}`, {responseType: 'text'});
+    return this.http.get(`http://localhost:3002/user/${email}`, {responseType: 'text'});
   }
 
   loginUser(user:User): Observable<userResponse>{
-    return this.http.post<userResponse>('https://k1wcpdjw-3002.uks1.devtunnels.ms/user/login', user);
+    return this.http.post<userResponse>('http://localhost:3002/user/login', user);
   }
 
   loggedIn(): Boolean{
@@ -64,19 +64,21 @@ export class DbService {
   }
 
   getCrafts(): Observable<Craft[]>{
-    return this.http.get<Craft[]>('https://k1wcpdjw-3002.uks1.devtunnels.ms/craft/');
+    return this.http.get<Craft[]>('http://localhost:3002/craft/');
   }
 
   getUserDetails(): Observable<UserDetails>{
-    return this.http.get<UserDetails>('https://k1wcpdjw-3002.uks1.devtunnels.ms/user-details');
+    return this.http.get<UserDetails>('http://localhost:3002/user-details');
   }
 
   editUserDetails(imageObject: any){
-    return this.http.put('https://k1wcpdjw-3002.uks1.devtunnels.ms/user-details', imageObject);
+    return this.http.put('http://localhost:3002/user-details', imageObject);
   }
 
   checkLevel(userDetails:any){
-    return this.http.put('https://k1wcpdjw-3002.uks1.devtunnels.ms/user-details/level-check', userDetails);
+    return this.http.put('http://localhost:3002/user-details/level-check', userDetails);
   }
+
+  
 
 }
