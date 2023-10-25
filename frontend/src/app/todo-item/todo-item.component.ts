@@ -18,6 +18,7 @@ export class TodoItemComponent {
   crafts?: any[];
   noData: boolean = false;
   isLoading: boolean = false;
+  dataFiltered: boolean = false;
 
   constructor(private dbService: DbService, private dialog: MatDialog, private communicationService: CommonService) { }
 
@@ -42,6 +43,7 @@ export class TodoItemComponent {
 
           this.todos = this.todos.filter((task) => {
             const createdCraft = this.crafts?.find((craft) => craft.taskId === task._id);
+            this.dataFiltered = true;
             return createdCraft && res.userId === createdCraft.userId;
           });
         }
@@ -101,7 +103,8 @@ export class TodoItemComponent {
     });
 
     dialogRef.afterClosed().subscribe(result=>{
-
+      this.isLoading = true;
+      this.dataFiltered = false;
     })
   }
 
@@ -113,7 +116,8 @@ export class TodoItemComponent {
     });
 
     dialogRef.afterClosed().subscribe(result=>{
-
+      this.isLoading = true;
+      this.dataFiltered = false;
     })
 
   }

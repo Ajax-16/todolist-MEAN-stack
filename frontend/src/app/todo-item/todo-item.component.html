@@ -12,7 +12,7 @@
     </div>
     <div class="container" *ngIf="todos">
         
-        <div class="todos-list">
+        <div class="todos-list" *ngIf="dataFiltered">
             
             <div class="todo-item" *ngFor="let todo of todos" [class.completed]="todo.state=='complete'">
                 <div class="check-box" (click)="completeTodo(todo)">
